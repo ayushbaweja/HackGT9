@@ -4,6 +4,8 @@ import adafruit_mpu6050
 from math import atan2, degrees, pi, sqrt
 # from pykalman import KalmanFilter
 import numpy as np
+from numpy import diff
+
 
 
 i2c = board.I2C()
@@ -64,7 +66,7 @@ while time.time() - start < 4:
         newAccel = np.array(mpu.acceleration)
         accel = np.add(accel, newAccel) #m/s/s
     accel = accel/10
-    dist = np.sqrt(np.sum(np.square(accel)))-9.8
+    accel = np.append(accel, (time.time() - start))
     print(accel[0],",",accel[1],",",accel[2],",", time.time() - start)
     # print(accel.shape)
 
@@ -72,6 +74,10 @@ while time.time() - start < 4:
     allAccel = np.append(allAccel, accel[np.newaxis,:],axis = 0)
 
 
+dx = np.diff(allAccel[:,0])/allAccel[:,3]
+dy = np.diff(allAccel[:,1])/allAccel[:,3]
+dz = np.diff(allAccel[:,2])/allAccel[:,3]
+print(dx,dy,dz,allAccel[:,3])
 
 
 
