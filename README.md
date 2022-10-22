@@ -1,3 +1,3 @@
 # HackGT9
 
-Hackers: Andrew Chen, Emily Cai, Ashima Taneja, Aayush Bawej
+Hackers: Andrew Chen, Emily Cai, Ashima Taneja, Ayush Baweja
