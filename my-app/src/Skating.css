@@ -1,0 +1,12 @@
+.Lift {
+    text-align: center;
+    font-weight: bold;
+    height: 100vh; 
+    background-Color: #000000;
+  }
+  
+  .Header {
+    text-align: center;
+    font-size: 40px;
+    color: #FF8C00; 
+  }
