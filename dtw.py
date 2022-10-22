@@ -3,15 +3,15 @@ import numpy as np
 from matplotlib import pyplot as mp
 
 one = pd.read_csv("test4.csv")
-two = pd.read_csv("slow.csv")
+# two = pd.read_csv("slow.csv")
 three = pd.read_csv("test1.csv")
 
 trimmed_1 = one.iloc[:,0]
-trimmed_2 = two.iloc[:,0]
+# trimmed_2 = two.iloc[:,0]
 trimmed_3 = three.iloc[:,0]
-print(trimmed_1.to_numpy())
-print(trimmed_2.to_numpy())
-print(trimmed_3.to_numpy())
+# print(trimmed_1.to_numpy())
+# print(trimmed_2.to_numpy())
+# print(trimmed_3.to_numpy())
 
 def dtw(s, t):
     n, m = len(s), len(t)
@@ -20,7 +20,7 @@ def dtw(s, t):
         for j in range(m+1):
             dtw_matrix[i, j] = np.inf
     dtw_matrix[0, 0] = 0
-    
+
     for i in range(1, n+1):
         for j in range(1, m+1):
             cost = abs(s[i-1] - t[j-1])
@@ -39,10 +39,11 @@ mp.savefig("graph.png")
 
 
 #test = dtw(trimmed_2.to_numpy(), trimmed_3.to_numpy())
-print(test[-1][-1])
+# print(test[-1][-1])
 
 
-#test = dtw(trimmed_1.to_numpy(), trimmed_3.to_numpy())
+
+test = dtw(trimmed_1.to_numpy(), trimmed_3.to_numpy())
 print(test[-1][-1])
 
 
